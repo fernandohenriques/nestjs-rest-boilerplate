@@ -55,19 +55,5 @@
   "bugs": {
     "url": "https://github.com/fernandohenriques/nestjs-rest-boilerplate/issues"
   },
-  "homepage": "https://github.com/fernandohenriques/nestjs-rest-boilerplate#readme",
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".spec.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
-  }
+  "homepage": "https://github.com/fernandohenriques/nestjs-rest-boilerplate#readme"
 }
