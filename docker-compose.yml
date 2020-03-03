@@ -1,0 +1,58 @@
+version: "3.7"
+
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        - PORT=${PORT}
+        - NODE_ENV=${NODE_ENV}
+    user: node
+    working_dir: /home/node/app
+    env_file:
+      - ./.env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - ${PORT}:${PORT}
+    depends_on:
+      - postgres
+    networks:
+      - mynet
+    command: "yarn start:dev"
+
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - mynet
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - "${PGADMIN_PORT}:80"
+    depends_on:
+      - postgres
+    networks:
+      - mynet
+
+
+volumes:
+  db-data:
+
+networks:
+  mynet:

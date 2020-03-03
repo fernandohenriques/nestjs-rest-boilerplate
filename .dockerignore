@@ -1,0 +1,13 @@
+.git
+docker*
+node_modules
+
+.env
+*.log
+.gitignore
+yarn.log
+.dockerignore
+.editorconfig
+README.md
+LICENSE
+.vscode
