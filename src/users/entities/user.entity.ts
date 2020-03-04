@@ -19,6 +19,14 @@ export class UserEntity {
   displayName: string;
 
   @ApiProperty()
+  @Column({ nullable: true })
+  typeDocument?: string;
+
+  @ApiProperty()
+  @Column({ nullable: true })
+  document?: string;
+
+  @ApiProperty()
   @Column({ type: 'date', nullable: true })
   birthDate?: Date;
 

@@ -51,7 +51,6 @@ services:
     networks:
       - mynet
 
-
 volumes:
   db-data:
 
