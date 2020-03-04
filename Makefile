@@ -20,9 +20,9 @@ test: build
 
 # DEVELOPMENT TASKS
 install:
-	npm install $(args) --save
-	docker exec -it app npm install $(args) --save
+	yarn add $(args)
+	docker exec -it $(APP_NAME) yarn add $(args)
 
 uninstall:
-	npm uninstall $(args) --save
-	docker exec -it app npm uninstall $(args) --save
+	yarn remove $(args)
+	docker exec -it $(APP_NAME) yarn remove $(args)
