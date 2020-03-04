@@ -14,8 +14,8 @@ services:
     env_file:
       - ./.env
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/home/node/app
+      - /home/node/app/node_modules
     ports:
       - ${PORT}:${PORT}
     depends_on:
@@ -39,6 +39,7 @@ services:
       - mynet
 
   pgadmin:
+    container_name: pgadmin
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
