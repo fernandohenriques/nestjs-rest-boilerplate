@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   app:
-    container_name: app
+    container_name: ${APP_NAME}
     build:
       context: .
       dockerfile: ./docker/Dockerfile
@@ -25,7 +25,7 @@ services:
     command: "yarn start:dev"
 
   postgres:
-    container_name: postgres
+    container_name: ${POSTGRES_HOST}
     image: postgres:latest
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
