@@ -8,4 +8,10 @@ export class UsersService extends TypeOrmCrudService<UserEntity> {
   constructor(private readonly userRepository: UserRepository) {
     super(userRepository);
   }
+
+  getHello(): { text: string } {
+    return {
+      text: 'Hello World!',
+    };
+  }
 }
