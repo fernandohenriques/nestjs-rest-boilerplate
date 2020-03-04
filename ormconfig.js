@@ -9,7 +9,7 @@ function TypeOrmConfig() {
     POSTGRES_PASSWORD: password,
   } = process.env;
 
-  const migrationsDir = '/db/migrations';
+  const migrationsDir = 'db/migrations';
 
   return {
     type: 'postgres',
@@ -18,15 +18,14 @@ function TypeOrmConfig() {
     database,
     username,
     password,
-    entities: [__dirname + '/**/*.entity.ts'],
+    entities: [__dirname + '/src/**/*.entity.ts'],
     migrations: [migrationsDir + '/**/*.ts'],
-    synchronize: true,
     dropSchema: false,
     logging: true,
+    autoSchemaSync: true,
     migrationsTableName: 'migrations',
     cli: {
       migrationsDir,
-      entitiesDir: 'src',
     },
   }
 }
