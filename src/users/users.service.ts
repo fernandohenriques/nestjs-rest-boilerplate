@@ -5,7 +5,7 @@ import { UserRepository } from './repositories/user.repository';
 
 @Injectable()
 export class UsersService extends TypeOrmCrudService<UserEntity> {
-  constructor(private readonly usersRepository: UserRepository) {
-    super(usersRepository);
+  constructor(private readonly userRepository: UserRepository) {
+    super(userRepository);
   }
 }
