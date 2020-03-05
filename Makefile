@@ -12,11 +12,24 @@ build:
     --build-arg PORT=$(PORT) \
     .
 
-test: build
-	docker run -d -i \
+stop:
+	docker stop $(POSTGRES_HOST) || true; docker rm $(POSTGRES_HOST) || true
+	docker stop $(APP_NAME) || true; docker rm $(APP_NAME) || true
+
+test: stop build
+	docker run -d -it \
+    --name $(POSTGRES_HOST) \
+    -e "POSTGRES_DB=$(POSTGRES_DB)" \
+    -e "POSTGRES_USER=$(POSTGRES_USER)" \
+    -e "POSTGRES_PASSWORD=$(POSTGRES_PASSWORD)" \
+    -p $(POSTGRES_PORT):$(POSTGRES_PORT) \
+    postgres:latest
+	docker run -i -t \
     --env-file $(variables) \
+		--user node \
+    --link $(POSTGRES_HOST):$(POSTGRES_HOST) \
     $(APP_NAME) \
-    /bin/sh -c "npm run test"
+    /bin/sh -c "yarn migration:run && yarn test && yarn test:e2e"
 
 # DEVELOPMENT TASKS
 install:

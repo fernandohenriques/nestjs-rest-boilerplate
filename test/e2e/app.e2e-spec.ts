@@ -15,7 +15,7 @@ describe('AppModule (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/ (GET) returns 404', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(404);
