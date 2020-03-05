@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 @Entity('User')
 export class UserEntity {
   @PrimaryGeneratedColumn()
-  readonly id: string;
+  readonly id: number;
 
   @ApiProperty()
   @Column({ unique: true })
