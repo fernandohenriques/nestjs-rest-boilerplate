@@ -18,6 +18,11 @@ module.exports = {
     jest: true,
   },
   rules: {
+    'no-console': 0,
+    'semi': ["error", "always"],
+    'eqeqeq': ["error", "always"],
+    'object-curly-spacing': ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',

@@ -1,15 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { UserEntity } from './entities/user.entity';
-//import { UserRepository } from './repositories/user.repository';
 import { UsersService } from './users.service';
 
 class MockRepository<T> {
   public createQueryBuilder = jest.fn(() => this.queryBuilder);
 
-  public manager = { transaction: a => Promise.resolve(a()) };
-  public metadata = { connection: { options: { type: null } }, columns: [], relations: [] };
+  public manager = {
+    transaction: a => Promise.resolve(a()),
+  };
+
+  public metadata = {
+    connection: {
+      options: {
+        type: null,
+      },
+    },
+    columns: [],
+    relations: [],
+  };
 
   public save = jest.fn();
   public delete = jest.fn();
