@@ -11,5 +11,5 @@ module.exports = {
   testRegex: ".spec.ts$",
   coverageDirectory: "coverage",
   testEnvironment: "node",
-  setupFilesAfterEnv: ["../test/jest.setup.js"]
+  setupFilesAfterEnv: ["../test/config/jest.setup.js"]
 };
