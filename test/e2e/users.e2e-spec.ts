@@ -15,8 +15,6 @@ describe('UsersController (e2e)', () => {
     POSTGRES_PASSWORD: password,
   } = process.env;
 
-  console.log(__dirname);
-
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
