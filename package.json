@@ -41,7 +41,7 @@
     "@nestjsx/crud": "^4.4.1",
     "@nestjsx/crud-typeorm": "^4.4.1",
     "class-transformer": "^0.3.1",
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.14.0",
     "fastify-swagger": "^2.5.0",
     "helmet": "^3.21.3",
     "pg": "^7.18.2",
